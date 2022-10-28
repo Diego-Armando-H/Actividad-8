@@ -41,3 +41,20 @@ class listaParticula:
             return 1
         except:
             return 0
+
+    def __len__(self):
+        return len(self.__particulas)
+
+    def __iter__(self):
+        self.cont = 0
+        return self
+
+    def __next__(self):
+        if self.cont < len(self.__particulas):
+            """ Asignamos la particula a devolver """
+            particula = self.__particulas[self.cont]
+            """ Incremenamos el contador """
+            self.cont += 1
+            return particula
+        """ detemos la iteración si se sobrepasa el tamaño de la lista """
+        raise StopIteration
